@@ -10,8 +10,8 @@ function App() {
         <ServiceAdd />
         <ServiceList />
         <hr />
-        <ServiceAddClassBased />
-        <ServiceListClassBased />
+        {/*<ServiceAddClassBased />*/}
+        {/*<ServiceListClassBased />*/}
       </>
   );
 }

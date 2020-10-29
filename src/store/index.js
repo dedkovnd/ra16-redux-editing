@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from "redux";
+import  { createStore, combineReducers } from "redux";
 import serviceListReducer from '../reducers/serviceList';
 import serviceAddReducer from '../reducers/serviceAdd';
 
