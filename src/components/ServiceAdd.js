@@ -4,6 +4,7 @@ import {changeServiceField, addService} from '../actions/actionCreators';
 
 function ServiceAdd() {
     const item = useSelector(state => state.serviceAdd);
+    console.log(item)
     const dispatch = useDispatch();
 
     const handleChange = evt => {

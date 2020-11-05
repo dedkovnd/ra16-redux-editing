@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux';
-import {editService, removeService,changeServiceField} from '../actions/actionCreators';
+import {editService, removeService, changeServiceField, serviceToEdit} from '../actions/actionCreators';
 
 
 function ServiceList() {
@@ -11,10 +11,14 @@ function ServiceList() {
         dispatch(removeService(id));
     }
     /////////
-    const editState = useSelector(state => state.serviceAdd)
-
     const handleEdit = id => {
-        editState.dispatch(changeServiceField(dispatch(editService(id))))
+        let targetService = items.filter(serv=>serv.id === id )
+        targetService = targetService.length > 0 ? targetService[0] : null
+
+        if(targetService !== null) {
+            let {name, price, id} = targetService
+            dispatch(serviceToEdit(name, price, id))
+        }
     }
     //////////////////////
     return (
