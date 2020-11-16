@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux';
-import {editService, removeService, changeServiceField, serviceToEdit} from '../actions/actionCreators';
-
+import { removeService, serviceToEdit} from '../actions/actionCreators';
+import {ServiceSearch} from "./ServiceSearch";
 
 function ServiceList() {
     const items = useSelector(state => state.serviceList);

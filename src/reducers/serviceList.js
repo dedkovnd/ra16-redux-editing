@@ -1,5 +1,5 @@
 import {nanoid}  from 'nanoid';
-import {ADD_SERVICE, REMOVE_SERVICE, EDIT_SERVICE_LIST} from '../actions/actionTypes'
+import {ADD_SERVICE, REMOVE_SERVICE} from '../actions/actionTypes'
 
 const initialState = [
     {id: nanoid(), name: 'Замена стекла', price: 21000},

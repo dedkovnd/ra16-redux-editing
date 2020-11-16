@@ -4,7 +4,6 @@ import {changeServiceField, addService} from '../actions/actionCreators';
 
 function ServiceAdd() {
     const item = useSelector(state => state.serviceAdd);
-    console.log(item)
     const dispatch = useDispatch();
 
     const handleChange = evt => {
@@ -14,7 +13,7 @@ function ServiceAdd() {
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        dispatch(addService(item.name, item.price));
+        dispatch(addService(item.name, item.price)); 
     }
 
     return (
