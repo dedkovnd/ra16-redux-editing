@@ -1,12 +1,18 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux';
-import { removeService, serviceToEdit} from '../actions/actionCreators';
-import {ServiceSearch} from "./ServiceSearch";
+import {filterService, removeService, serviceToEdit} from '../actions/actionCreators';
 
 function ServiceList() {
     const items = useSelector(state => state.serviceList);
+    const filter = useSelector(state=> state.serviceSearch.filterInput)
     const dispatch = useDispatch();
 
+    /////
+    useEffect(()=>{
+        dispatch(filterService(filter))
+    }, [filter])
+
+    /////
     const handleRemove = id => {
         dispatch(removeService(id));
     }
@@ -20,6 +26,7 @@ function ServiceList() {
             dispatch(serviceToEdit(name, price, id))
         }
     }
+
     //////////////////////
     return (
         <ul>

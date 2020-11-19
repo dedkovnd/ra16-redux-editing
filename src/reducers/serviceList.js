@@ -1,5 +1,7 @@
 import {nanoid}  from 'nanoid';
-import {ADD_SERVICE, REMOVE_SERVICE} from '../actions/actionTypes'
+import {ADD_SERVICE, REMOVE_SERVICE, FILTER_SERVICE} from '../actions/actionTypes'
+import {useSelector} from "react-redux";
+
 
 const initialState = [
     {id: nanoid(), name: 'Замена стекла', price: 21000},
@@ -14,6 +16,15 @@ export default function serviceListReducer(state = initialState, action) {
         case REMOVE_SERVICE:
             const {id} = action.payload;
             return state.filter(service => service.id !== id);
+            /////////
+        case FILTER_SERVICE:
+            const str = action.payload
+            if(str.length > 0) {
+                return state.filter(e=> e.name.toLowerCase().startsWith(str))
+            } else {
+                return initialState;
+            }
+            ////////
         default:
             return state;
     }

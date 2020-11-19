@@ -1,5 +1,5 @@
 import { ADD_SERVICE, REMOVE_SERVICE, CHANGE_SERVICE_FIELD,
-    CHANGE_SERVICE_TO_EDIT, FILTER_SERVICE_LIST } from './actionTypes';
+    CHANGE_SERVICE_TO_EDIT, FILTER_SERVICE_LIST, FILTER_SERVICE } from './actionTypes';
 
 export function addService(name, price) {
     return {type: ADD_SERVICE, payload: {name, price}};
@@ -20,6 +20,10 @@ export function serviceToEdit(nameServ, price, id) {
 
 export function filterServiceList(input) {
     return {type: FILTER_SERVICE_LIST, payload: input}
+}
+
+export function filterService(str) {
+    return {type: FILTER_SERVICE, payload: str}
 }
 
 
