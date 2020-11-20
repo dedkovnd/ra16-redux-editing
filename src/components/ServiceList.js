@@ -7,16 +7,14 @@ function ServiceList() {
     const filter = useSelector(state=> state.serviceSearch.filterInput)
     const dispatch = useDispatch();
 
-    /////
     useEffect(()=>{
         dispatch(filterService(filter))
     }, [filter])
 
-    /////
     const handleRemove = id => {
         dispatch(removeService(id));
     }
-    /////////
+
     const handleEdit = id => {
         let targetService = items.filter(serv=>serv.id === id )
         targetService = targetService.length > 0 ? targetService[0] : null
@@ -27,7 +25,6 @@ function ServiceList() {
         }
     }
 
-    //////////////////////
     return (
         <ul>
             {items.map(o => (
